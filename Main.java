@@ -18,22 +18,20 @@ class Wallet {
         }
     }
     public void transferTo(Wallet receiver, double amount) {
-        try {
-            if (amount <= 0) {
-                throw new IllegalArgumentException("Invalid amount entered!");
-            }
-            if (this.balance < amount) {
-                throw new Exception("Insufficient balance!");
-            }
-            this.balance -= amount;
-            receiver.balance += amount;
-            double cashback = amount * cashbackRate;
-            this.balance += cashback;
-            System.out.println("Transaction successful!");
-            System.out.println("Cashback received: " + cashback);
-        } catch (Exception e) {
-            System.out.println("Transaction failed: " + e.getMessage());
-        }
+if (amount <= 0) {
+        System.out.println("Invalid amount entered!");
+        return;
+    }
+    if (this.balance < amount) {
+        System.out.println("Insufficient balance!");
+        return;
+    }
+    this.balance -= amount;
+    receiver.balance += amount;
+    double cashback = amount * cashbackRate;
+    this.balance += cashback;
+    System.out.println("Transaction successful!");
+    System.out.println("Cashback received: " + cashback);
     }
 }
 
